@@ -1,0 +1,67 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+.head-image {
+    width: 100%;
+    height: 400rpx;
+}
+.audio {
+    width: 102rpx;
+    height: 110rpx;
+    position: absolute;
+    left: 50%;
+    margin-left: -51rpx;
+    top: 145rpx;
+    opacity: 0.6;
+}
+.author-date {
+    margin-top: 10px;
+}
+.avatar {
+    width: 70rpx;
+    height: 70rpx;
+    vertical-align: middle;
+    margin-left: 30rpx;
+}
+.author {
+    font-size: 30rpx;
+}
+.const-text,.date,.author{
+    color: rgb(119, 119, 119);
+    margin-left: 10rpx; 
+}
+.title {
+    margin-left: 35rpx;
+    margin-top: 15rpx;
+    font-size: 40rpx;
+    letter-spacing: 8rpx;
+    font-weight: 500;
+}
+.tool {
+    position: relative;
+    margin-top: 20rpx;
+}
+.tool::after {
+    content: "";
+    height: 1px;
+    background: #999;
+    position: absolute;
+    top: 40rpx;
+    left: 35rpx;
+    right: 35rpx;
+    z-index: -99;
+}
+.tool image {
+    width: 80rpx;
+    height: 80rpx;
+    float: right;
+    margin-right: 35rpx;
+}
+.detail {
+    margin: 20rpx 35rpx 0;
+    margin-top: 15rpx;
+    color: #666;
+    letter-spacing: 2rpx;
+    font-size: 27rpx;
+}
