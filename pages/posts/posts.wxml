@@ -1,76 +1,30 @@
 <view>
-  <swiper indicator-dots='true' autoplay='true'>
-    <swiper-item>
-      <image src='/images/swiper1.jpg'></image>
-    </swiper-item>
-    <swiper-item>
-      <image src='/images/swiper2.jpg'></image>
-    </swiper-item>
-    <swiper-item>
-      <image src='/images/swiper3.jpg'></image>
-    </swiper-item>
-  </swiper>
-  <block wx:for="{{post_key}}">
-    <view class='post-container'>
-      <view class='post-author-date'>
-        <image class='post-author' src='{{item.author_img}}'></image>
-        <text class='post-date'>{{item.date}}</text>
-      </view>
-      <text class='post-title'>{{item.title}}</text>
-      <image class='post-image' src='{{item.post_img}}'></image>
-      <text class='post-content'>{{item.content}}</text>
-      <view class='post-like'>
-        <image class='post-like-image' src='/images/icon/chat.png'></image>
-        <text class='post-like-font'>{{item.collect_num}}</text>
-        <image class='post-like-image' src='/images/icon/view.png'></image>
-        <text class='post-like-font'>{{item.view_num}}</text>
-      </view>
-    </view>
-  </block>
-
-  <!-- <view class='post-container'>
-    <view class='post-author-date'>
-      <image class='post-author' src='{{author_img}}'></image>
-      <text class='post-date'>{{date}}</text>
-    </view>
-    <text class='post-title'>{{title}}</text>
-    <image class='post-image' src='{{post_img}}'></image>
-    <text class='post-content'>{{content}}</text>
-    <view class='post-like'>
-      <image class='post-like-image' src='/images/icon/chat.png'></image>
-      <text class='post-like-font'>{{collect_num}}</text>
-      <image class='post-like-image'  src='/images/icon/view.png'></image>
-      <text class='post-like-font'>{{view_num}}</text>
-    </view>
-  </view>
-  <view class='post-container'>
-    <view class='post-author-date'>
-      <image class='post-author' src='/images/avatar/1.png'></image>
-      <text class='post-date'>{{date}}</text>
-    </view>
-    <text class='post-title'>美施压德国制裁华为？德官员：没有证据显示华为有安全问题</text>
-    <image class='post-image' src='/images/post/huawei.jpg'></image>
-    <text class='post-content'>“我想说的是：当这么多事情发生之后，美加还自诩遵守法治和规则，令人吃惊。在我看来，这无异于现代版‘皇帝的新装’。”针对加拿大和美国方面对拘押华为公司高管事件的辩解，中国外交部发言人华春莹17日这样表示。这场吸引全球舆论目光的风波一时还看不到平息的希望，随着媒体曝光更多美国及其部分盟友刻意打压华为的内幕，美加以“法治”为借口显得越来越滑稽可笑。有外媒表示，这更像是帝国主义的霸权做法。华春莹当天在记者会上再次敦促加方立即改正错误，释放中国公民。</text>
-    <view class='post-like'>
-      <image class='post-like-image' src='/images/icon/chat.png'></image>
-      <text class='post-like-font'>123</text>
-      <image class='post-like-image'  src='/images/icon/view.png'></image>
-      <text class='post-like-font'>321</text>
-    </view>
-  </view>
-  <view class='post-container'>
-    <view class='post-author-date'>
-      <image class='post-author' src='/images/avatar/1.png'></image>
-      <text class='post-date'>{{date}}</text>
-    </view>
-    <text class='post-title'>赞比亚外交部正式照会美方:收回污蔑中国的假新闻</text>
-    <image class='post-image' src='/images/post/news1.jpg'></image>
-    <text class='post-content'>“这已经不是第一次美方官员被打脸了”，17日，针对美国总统国家安全事务助理博尔顿称中国将接管赞比亚供电公司以收回债务的言论，中国外交部发言人华春莹这样说道。此前，赞比亚也就博尔顿的相关言论进行驳斥，并提交照会要求美方收回这番言论。</text>
-    <view class='post-like'>
-      <image class='post-like-image' src='/images/icon/chat.png'></image>
-      <text class='post-like-font'>123</text>
-      <image class='post-like-image'  src='/images/icon/view.png'></image>
-      <text class='post-like-font'>321</text>
-    </view>
-  </view> -->
+    <swiper indicator-dots='true' autoplay='true' circular='true'>
+        <swiper-item>
+            <image src='/images/swiper1.jpg'></image>
+        </swiper-item>
+        <swiper-item>
+            <image src='/images/swiper2.jpg'></image>
+        </swiper-item>
+        <swiper-item>
+            <image src='/images/swiper3.jpg'></image>
+        </swiper-item>
+    </swiper>
+    <block wx:for="{{post_key}}">
+        <view class='post-container'>
+            <view class='post-author-date'>
+                <image class='post-author' src='{{item.avatar}}'></image>
+                <text class='post-date'>{{item.date}}</text>
+            </view>
+            <text class='post-title'>{{item.title}}</text>
+            <image class='post-image' src='{{item.imgSrc}}'></image>
+            <text class='post-content'>{{item.content}}</text>
+            <view class='post-like'>
+                <image class='post-like-image' src='/images/icon/chat.png'></image>
+                <text class='post-like-font'>{{item.collection}}</text>
+                <image class='post-like-image' src='/images/icon/view.png'></image>
+                <text class='post-like-font'>{{item.reading}}</text>
+            </view>
+        </view>
+    </block>
 </view>
