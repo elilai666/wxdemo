@@ -36,7 +36,7 @@ let local_database = [{
     headImgSrc: '/images/post/fe.png',
     author: 'FE',
     dateTime: '2018年12月17日',
-    detail: 'WebAssembly 发布了主要版本，核心规范达到 1.0;从 NPM 下载量来看 React、jQuery、Angular 和 Vue 是 4 个最受欢迎的前端模块。请进一步阅读以了解前端库的最新发展;React 多年来一直主导 Web 开发，2018 年它根本没有放慢速度。根据 Stackoverflow 调查，它仍然是最受欢迎的库之一。'
+    detail: 'WebAssembly 发布了主要版本，核心规范达到 1.0;\n从 NPM 下载量来看 React、jQuery、Angular 和 Vue 是 4 个最受欢迎的前端模块。\n React 多年来一直主导 Web 开发，2018 年它根本没有放慢速度。\n 根据 Stackoverflow 调查，它仍然是最受欢迎的库之一。'
 }, {
     postId: 3,
     date: '2018年12月18日',
