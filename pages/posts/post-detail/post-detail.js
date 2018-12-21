@@ -18,12 +18,39 @@ Page({
         let postsCollected = wx.getStorageSync('postsCollected');
         if (!postsCollected) {
             wx.setStorageSync('postsCollected', new Object())
-        } 
+        }
         this.setData({
             'collected': Boolean(postsCollected[postId])
-        })
+        });
+        // 初始化音乐状态
+        let musicManager = wx.getBackgroundAudioManager();
+        if (!musicManager.src) {
+            musicManager.title = "寂寞先生-remix";
+            musicManager.singer = "马英伦";
+            musicManager.src = 'http://182.140.219.14/amobile.music.tc.qq.com/C400004MBI7M0ZigP2.m4a?guid=5766279968&vkey=25C3E2F6DB19197B60FEF368F8E177B0DA5F50BD723BC97F5377D6D81709F753101587EF2864DA92F959BA80234FA0B077006E034A6D5BB3&uin=0&fromtag=66';
+            this.setData({
+                isPlayingMusic: true
+            })
+        } else {
+            this.setData({
+                isPlayingMusic: !musicManager.paused
+            })
+        }
     },
+    /**
+     * 点击音乐播放事件
+     */
+    onMusicTap: function (e) {
+        let musicManager = wx.getBackgroundAudioManager();
+        musicManager.paused ? musicManager.play() : musicManager.pause();
+        this.setData({
+            isPlayingMusic: !musicManager.paused
+        })
 
+    },
+    /**
+     * 点击收藏按钮事件
+     */
     onColectionTap: function(e) {
         // 更新缓存
         let postsCollected = wx.getStorageSync('postsCollected');
@@ -37,6 +64,23 @@ Page({
         //设置页面data状态
         this.setData({
             'collected': !this.data.collected
+        })
+    },
+
+    /**
+     * 点击分享按钮事件
+     */
+    onShareTap: function(e) {
+        let shareArr = ["微信好友", '朋友圈', 'QQ', '微博']
+        wx.showActionSheet({
+            itemList: shareArr,
+            itemColor: "#405f80",
+            success: function(res) {
+                wx.showModal({
+                    title: '用户分享到' + shareArr[res.tapIndex],
+                    content: '确认？'
+                })
+            }
         })
     },
 
@@ -65,7 +109,7 @@ Page({
      * 生命周期函数--监听页面卸载
      */
     onUnload: function() {
-       
+
     },
 
     /**
