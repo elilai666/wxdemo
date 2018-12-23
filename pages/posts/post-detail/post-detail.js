@@ -13,7 +13,8 @@ Page({
      */
     onLoad: function(options) {
         let postId = options.id;
-        this.setData(postsData.postList[postId]);
+        let thisPostItem = postsData.postList[postId];
+        this.setData(thisPostItem);
         // 缓存
         let postsCollected = wx.getStorageSync('postsCollected');
         if (!postsCollected) {
@@ -25,9 +26,9 @@ Page({
         // 初始化音乐状态
         let musicManager = wx.getBackgroundAudioManager();
         if (!musicManager.src) {
-            musicManager.title = "寂寞先生-remix";
-            musicManager.singer = "马英伦";
-            musicManager.src = 'http://182.140.219.14/amobile.music.tc.qq.com/C400004MBI7M0ZigP2.m4a?guid=5766279968&vkey=25C3E2F6DB19197B60FEF368F8E177B0DA5F50BD723BC97F5377D6D81709F753101587EF2864DA92F959BA80234FA0B077006E034A6D5BB3&uin=0&fromtag=66';
+            musicManager.title = thisPostItem.music.title;
+            musicManager.singer = thisPostItem.music.singer;
+            musicManager.src = thisPostItem.music.url;
             this.setData({
                 isPlayingMusic: true
             })
@@ -46,7 +47,6 @@ Page({
         this.setData({
             isPlayingMusic: !musicManager.paused
         })
-
     },
     /**
      * 点击收藏按钮事件
@@ -109,7 +109,12 @@ Page({
      * 生命周期函数--监听页面卸载
      */
     onUnload: function() {
-
+        //离开页面的时候关闭音乐
+        let musicManager = wx.getBackgroundAudioManager();
+        musicManager.stop()
+        this.setData({
+            isPlayingMusic: false
+        })
     },
 
     /**
