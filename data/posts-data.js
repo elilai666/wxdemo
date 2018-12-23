@@ -1,95 +1,95 @@
 let local_database = [{
-    postId: 0,
-    date: '2018年12月18日',
-    title: '腾讯 omi-mp-create 发布',
-    imgSrc: '/images/post/tx.png',
-    content: 'omi-mp-create 和 omio 一样，使用了 omi packages 里的 obaa 监听数据变化自动更新视图。',
-    reading: '3452',
-    collection: '1087',
-    avatar: '/images/avatar/1.png',
-    headImgSrc: '/images/post/tx.png',
-    author: 'TX',
-    dateTime: '2018年12月19日',
-    detail: 'omi-mp-create 和 omio 一样，使用了 omi packages 里的 obaa 监听数据变化自动更新视图。和早期发布的 westore 对比的话，就是不用 diff 了，数据变更之后 setData 的最短路径自动就出来了，性能上一个档次。',
-    music: {
-        url: 'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46',
-        title: '此时此刻1',
-        singer: '许巍'
-    }
+  postId: 0,
+  date: '2018年12月18日',
+  title: '腾讯 omi-mp-create 发布',
+  imgSrc: '/images/post/tx.png',
+  content: 'omi-mp-create 和 omio 一样，使用了 omi packages 里的 obaa 监听数据变化自动更新视图。',
+  reading: '3452',
+  collection: '1087',
+  avatar: '/images/avatar/1.png',
+  headImgSrc: '/images/post/tx.png',
+  author: 'TX',
+  dateTime: '2018年12月19日',
+  detail: 'omi-mp-create 和 omio 一样，使用了 omi packages 里的 obaa 监听数据变化自动更新视图。和早期发布的 westore 对比的话，就是不用 diff 了，数据变更之后 setData 的最短路径自动就出来了，性能上一个档次。',
+  music: {
+    url: 'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46',
+    title: '此时此刻',
+    singer: '许巍'
+  }
 }, {
-    postId: 1,
-    date: '2018年12月18日',
-    title: 'Taro：将已有微信小程序转换为多端应用',
-    imgSrc: '/images/post/Taro.png',
-    content: '在距离 Taro 1.1 发布 之后一个月，经历了 500 多次提交和 17 个预览版本的迭代之后，我们有信心在今天发布 Taro 1.2 正式版。',
-    reading: '5233',
-    collection: '2873',
-    avatar: '/images/avatar/2.png',
-    headImgSrc: '/images/post/Taro.png',
-    author: 'TX',
-    dateTime: '2018年12月18日',
-    detail: '在距离 Taro 1.1 发布 之后一个月，经历了 500 多次提交和 17 个预览版本的迭代之后，我们有信心在今天发布 Taro 1.2 正式版。Taro 1.2 比起 Taro 1.1 和其它的小程序开发框架，增加了许多首次在小程序框架上实现的功能',
-    music: {
-        url: 'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46',
-        title: '此时此刻2',
-        singer: '许巍'
-    }
+  postId: 1,
+  date: '2018年12月18日',
+  title: 'Taro：将已有微信小程序转换为多端应用',
+  imgSrc: '/images/post/Taro.png',
+  content: '在距离 Taro 1.1 发布 之后一个月，经历了 500 多次提交和 17 个预览版本的迭代之后，我们有信心在今天发布 Taro 1.2 正式版。',
+  reading: '5233',
+  collection: '2873',
+  avatar: '/images/avatar/2.png',
+  headImgSrc: '/images/post/Taro.png',
+  author: 'TX',
+  dateTime: '2018年12月18日',
+  detail: '在距离 Taro 1.1 发布 之后一个月，经历了 500 多次提交和 17 个预览版本的迭代之后，我们有信心在今天发布 Taro 1.2 正式版。Taro 1.2 比起 Taro 1.1 和其它的小程序开发框架，增加了许多首次在小程序框架上实现的功能',
+  music: {
+    url: 'http://win.web.ru01.sycdn.kuwo.cn/resource/n1/5/55/3453868256.mp3',
+    title: '你的微笑',
+    singer: 'FIR'
+  }
 }, {
-    postId: 2,
-    date: '2018年12月17日',
-    title: '前端开发 2018 回顾及 2019 展望',
-    imgSrc: '/images/post/fe.png',
-    content: '前端发展的世界发展迅速。非常快。本文将回顾2018年最重要的前端新闻，值得关注的事件和 JavaScript 趋势。',
-    reading: '1234',
-    collection: '23',
-    avatar: '/images/avatar/3.png',
-    headImgSrc: '/images/post/fe.png',
-    author: 'FE',
-    dateTime: '2018年12月17日',
-    detail: 'WebAssembly 发布了主要版本，核心规范达到 1.0;\n从 NPM 下载量来看 React、jQuery、Angular 和 Vue 是 4 个最受欢迎的前端模块。\n React 多年来一直主导 Web 开发，2018 年它根本没有放慢速度。\n 根据 Stackoverflow 调查，它仍然是最受欢迎的库之一。',
-    music: {
-        url: 'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46',
-        title: '此时此刻3',
-        singer: '许巍'
-    }
+  postId: 2,
+  date: '2018年12月17日',
+  title: '前端开发 2018 回顾及 2019 展望',
+  imgSrc: '/images/post/fe.png',
+  content: '前端发展的世界发展迅速。非常快。本文将回顾2018年最重要的前端新闻，值得关注的事件和 JavaScript 趋势。',
+  reading: '1234',
+  collection: '23',
+  avatar: '/images/avatar/3.png',
+  headImgSrc: '/images/post/fe.png',
+  author: 'FE',
+  dateTime: '2018年12月17日',
+  detail: 'WebAssembly 发布了主要版本，核心规范达到 1.0;\n从 NPM 下载量来看 React、jQuery、Angular 和 Vue 是 4 个最受欢迎的前端模块。\n React 多年来一直主导 Web 开发，2018 年它根本没有放慢速度。\n 根据 Stackoverflow 调查，它仍然是最受欢迎的库之一。',
+  music: {
+    url: 'http://win.web.ra01.sycdn.kuwo.cn/resource/n1/192/29/70/2305947736.mp3',
+    title: '霍元甲',
+    singer: '周杰伦'
+  }
 }, {
-    postId: 3,
-    date: '2018年12月18日',
-    title: '阳澄湖大闸蟹',
-    imgSrc: '/images/post/crab.png',
-    content: '阳澄湖是海水与淡水在长江交汇所遇到的第一个湖泊，水位常年稳定在2米左右，地形复杂、光照充足，湖内有着丰富的生物品种，湖边则是遍地稻谷，水草丰富、螺蛆更肥，独特的地理条件为大闸蟹的生长提供了良好的环境',
-    reading: '154',
-    collection: '87',
-    avatar: '/images/avatar/4.png',
-    headImgSrc: '/images/post/crab.png',
-    author: '吃货',
-    dateTime: '2018年12月17日',
-    detail: '阳澄湖大闸蟹，江苏省苏州市特产，中国国家地理标志产品，阳澄湖大闸蟹又名金爪蟹。产于苏州阳澄湖。蟹身不沾泥，俗称清水大闸蟹，体大膘肥，青壳白肚，金爪黄毛，肉质膏腻。农历9月的雌蟹、10月的雄蟹，性腺发育最佳。煮熟凝结，雌者成金黄色，雄者如白玉状，滋味鲜美。2005年5月9日，原国家质检总局批准对“阳澄湖大闸蟹”实施原产地域产品保护。 2018年9月25日报道，外地蟹被运到阳澄湖，贴标价翻十倍。',
-    music: {
-        url: 'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46',
-        title: '此时此刻4',
-        singer: '许巍'
-    }
+  postId: 3,
+  date: '2018年12月18日',
+  title: '周杰伦简介',
+    imgSrc: '/images/post/jay.png',
+    content: '周杰伦2001年初，周杰伦发行首张专辑《Jay》，获得台湾当年最佳流行音乐演唱专辑、最佳制作人和最佳作曲人三项奖项，专辑《Jay》的成功让台湾的歌星们大跌眼镜，在人们还没有完全记住周杰伦这个名字的时候，9月20日他带来了个更为天马行空的专辑《范特西》',
+  reading: '15499',
+  collection: '8711',
+  avatar: '/images/avatar/4.png',
+  headImgSrc: 'https://img.idol001.com/origin/2015/07/28/130d3b5362c6201aa9fff725fcf3eab41438070406.jpg',
+  author: 'Jay迷',
+  dateTime: '2018年12月17日',
+  detail: '周杰伦2001年初，周杰伦发行首张专辑《Jay》，获得台湾当年最佳流行音乐演唱专辑、最佳制作人和最佳作曲人三项奖项，专辑《Jay》的成功让台湾的歌星们大跌眼镜，在人们还没有完全记住周杰伦这个名字的时候，9月20日他带来了个更为天马行空的专辑《范特西》，唱片公司也对这张唱片非常重视，把专辑中的十首歌曲全部拍成MTV，并且向全国乃至全亚洲进行了大面积的宣传，《范特西》对于定型周杰伦唱片风格具有重要意义，并且在商业运作上取得了成功，周杰伦也凭借这张专辑成功打开了东西南亚市场。2002年9月28日周杰伦于台北市立体育场举办《THEONE演唱会》，创下了台湾演唱会近十年的优质纪录。2003年7月，全亚洲超过50家电台定7月16日为周杰伦日，同步首播新专辑《叶惠美》中的主打歌曲《以父之名》。电影图集(14张)2003年《东风破》发行，周杰伦被华语音乐传媒大赏评为最佳作曲人。同年，荣登美国《时代》周刊亚洲版封面人物”。周杰伦是继王菲、张惠妹之后，第3位出现在《时代》杂志封面的华人歌手。2004年周杰伦以《龙拳》亮相春晚；2005年6月23日主演处女作《头文字D》上映，同年获得香港电影金像奖最佳新人奖；2007年11月24日周杰伦在上海八万人体育场开唱。2007年，周杰伦完成THE ONE、无与伦比两次世界巡回演唱会，已先后在美国康涅狄格州、洛杉矶、加拿大、日本东京、新加坡、马来西亚吉隆坡、泰国曼谷、香港、台湾台北、大陆等各地区举办多场个人演唱会；2007年4月，杰威尔音乐有限公司成立。周杰伦(13张)2008年，继艺人王力宏、张惠妹、金城武、F4后，成为美国新闻网第5位CNN Talk Asia采访的对象；2008年周杰伦在春晚演唱《青花瓷》；同年《青花瓷》歌词出现在山东、江苏两省的高考试题中，引起热议。1月10日，周杰伦自导自演的电影《不能说的秘密》在韩国上映，上映12天影片票房就达到了4万名，按银幕平均票房不输给同期在韩国上映的其他影片。2月16日，在日本武道馆连开两场演唱会，成为继邓丽君、王菲之后第三位在武道馆开唱的华人歌手，演唱会上演唱的中国风歌曲《千里之外》《霍元甲》受到日本Fans的欢迎；11月，凭借《我很忙》专辑获得每年在摩洛哥举办的“世界音乐大奖”所颁发的“中国区畅销专辑”，连获三届（2006年、2007年、2008年），打破张学友二连冠的纪录，加上2004年，周杰伦已先后获得四次世界音乐大奖“中国区最畅销艺人”奖。2009年7月，周杰伦澳洲巡演，悉尼演唱会票房空降美国公告牌（Billboard）第二，力压碧昂斯，成为当年全球单场演唱会票房收入第二的好成绩，打破了华人在澳洲开唱的票房纪录；2009年12月，美国CNN评选亚洲最具影响力的25位人物”，周杰伦入选，并被CNN网站形容为“非凡艺人”。　2010年，美国古柏第奴(Cupertino)市长黄少雄，为了纪念周杰伦对华人音乐的贡献，定于本世纪第一个十年的最后一天为古柏蒂奴的“周杰伦日”；某手机制造商调查“全球歌曲下载量最高歌手”（2008年年初至2010年8月10日），周杰伦的全球歌曲下载量排名第三，仅次于Lady Gaga、迈克尔·杰克逊；美国《Fast Company》杂志评选“全球百大创意人物”，他与Lady Gaga、Jay-Z成为三位入选的艺人，并且成为首位入榜的华人男歌手；12月，国际小行星命名中心批准，正式将编号为257248的小行星命名为周杰伦星，这颗小行星是由两岸天文爱好者于2009年合作发现的，周杰伦创作以这颗小行星为题材的歌曲《爱的飞行日记》；导演电视剧《熊猫人》上映。青蜂侠剧照2011年4月21日，美国《时代》周刊评选“2011年全球最具影响力人物100强”，周杰伦位列第二；2011年，周杰伦以《青蜂侠》进军好莱坞，美国知名电影网站“Screen Crave”评选出十大最值得期待的新秀演员，将以《青蜂侠》进军海外市场的周杰伦，而且是台湾地区首位进军好莱坞的艺人；2011年，周杰伦与NBA篮球巨星科比拍摄雪碧广告，周杰伦创作主题曲《天地一斗》，与科比合拍MV，于2011年2月21日在美国加州洛杉矶首发，歌曲的下载收入将全部捐献给中国希望工程（2011年筹得超过200多万元人民币的善款）；12月，日本人气组合Exile致敬周杰伦，翻唱其歌曲《说了再见》，将其重新填词为日文版《Real Valentine》，收录个人单曲，在Exile东京演唱会上邀请周杰伦担任嘉宾，周杰伦负责钢琴的演奏部分，周杰伦与Exile分别以中文和日文歌词献唱。杂志封面(17张)2012年3月，周杰伦亲自前往由他所捐助的湖南省汨罗市智峰乡希望小学考察善款的落实情况，与孩子们互动，弹唱《稻香》等励志歌曲，和同学们一起打篮球；5月登上福布斯中国名人榜第一名；9月22日，周杰伦在新加坡F1（世界一级方程式锦标赛）赛道开唱，成为在F1演出的华人歌手第一位。12月28日，周杰伦发行的全新专辑《十二新作》，入围第24届金曲奖最佳专辑、最佳男歌手等4项提名。2013年5月17日， “魔天伦”世界巡回演唱会在上海奔驰文化中心启动。6月1日周杰伦配音《十万个冷笑话》第9、10集太乙真人；7月11日，周杰伦信主后首部自导自演的新片《天台爱情》首映。周导所属的台北新生命小组教会Jesus Fashion舞团于7月10日在《天台爱情》首映会上演“天台歌武秀”，吸引媒体与民众注意。该片也受张艺谋的好评。周杰伦代言英雄联盟2014年6月，媒体报道《蜗牛》有望被收录进修订的语文出版社版小学语文课本三年级的延伸阅读中，而早在2005年《蜗牛》就曾被收入上海中学生爱国主义歌曲推荐目录。12月10日，第十三张专辑专辑《哎呦，不错哦》于iTunes与实体唱片同步预购。9月13日周杰伦作为世界明星大使，担任2014观澜湖世界明星赛的推广大使。2015年，加盟第四季《中国好声音》担任导师。6月20日，周杰伦受邀担任《英雄联盟》超越大使。6月27日，周杰伦凭借专辑《哎呦，不错哦》获得第26届台湾金曲奖最佳国语专辑、最佳专辑制作人两项提名。7月17日，周杰伦变“小公举”，《好声音4》首播后不到一个小时，“周杰伦小公举”的话题拿下微博热搜榜冠军。',
+  music: {
+    url: 'http://other.web.ra01.sycdn.kuwo.cn/resource/n3/320/32/31/697272324.mp3',
+    title: '夜曲',
+    singer: '周杰伦'
+  }
 }, {
-    postId: 4,
-    date: '2018年12月18日',
-    title: '猫有哪些超级萌的瞬间？',
-    imgSrc: '/images/post/cat.png',
-    content: '真的超可爱有次拿着猫粮不给她拖，她就发出呜呜呜声，还这样看着我',
-    reading: '123',
-    collection: '11',
-    avatar: '/images/avatar/5.png',
-    headImgSrc: '/images/post/cat.png',
-    author: '猫梓',
-    dateTime: '2018年12月18日',
-    detail: '真的超可爱有次拿着猫粮不给她拖，她就发出呜呜呜声，还这样看着我',
-    music : {
-        url: 'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46',
-        title: '此时此刻5',
-        singer: '许巍'
-    }
+  postId: 4,
+  date: '2018年12月18日',
+  title: '猫有哪些超级萌的瞬间？',
+  imgSrc: '/images/post/cat.png',
+  content: '真的超可爱有次拿着猫粮不给她拖，她就发出呜呜呜声，还这样看着我',
+  reading: '123',
+  collection: '11',
+  avatar: '/images/avatar/5.png',
+  headImgSrc: '/images/post/cat.png',
+  author: '猫梓',
+  dateTime: '2018年12月18日',
+  detail: '真的超可爱有次拿着猫粮不给她拖，她就发出呜呜呜声，还这样看着我',
+  music: {
+    url: 'https://m10.music.126.net/20181223195416/32d1ff71995771ece052e7e057c9ffd2/ymusic/012e/c9af/4374/cf9bdd13ab0840fd7292dea15cc5c685.mp3',
+    title: '再见青春',
+    singer: '任素汐'
+  }
 }];
 
 module.exports = {
-    postList: local_database
+  postList: local_database
 }
