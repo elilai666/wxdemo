@@ -56,8 +56,8 @@ let local_database = [{
   postId: 3,
   date: '2018年12月18日',
   title: '周杰伦简介',
-    imgSrc: '/images/post/jay.png',
-    content: '周杰伦2001年初，周杰伦发行首张专辑《Jay》，获得台湾当年最佳流行音乐演唱专辑、最佳制作人和最佳作曲人三项奖项，专辑《Jay》的成功让台湾的歌星们大跌眼镜，在人们还没有完全记住周杰伦这个名字的时候，9月20日他带来了个更为天马行空的专辑《范特西》',
+  imgSrc: '/images/post/jay.png',
+  content: '周杰伦2001年初，周杰伦发行首张专辑《Jay》，获得台湾当年最佳流行音乐演唱专辑、最佳制作人和最佳作曲人三项奖项，专辑《Jay》的成功让台湾的歌星们大跌眼镜，在人们还没有完全记住周杰伦这个名字的时候，9月20日他带来了个更为天马行空的专辑《范特西》',
   reading: '15499',
   collection: '8711',
   avatar: '/images/avatar/4.png',
@@ -84,9 +84,9 @@ let local_database = [{
   dateTime: '2018年12月18日',
   detail: '真的超可爱有次拿着猫粮不给她拖，她就发出呜呜呜声，还这样看着我',
   music: {
-    url: 'https://m10.music.126.net/20181223195416/32d1ff71995771ece052e7e057c9ffd2/ymusic/012e/c9af/4374/cf9bdd13ab0840fd7292dea15cc5c685.mp3',
-    title: '再见青春',
-    singer: '任素汐'
+    url: 'http://ip.h5.rf01.sycdn.kuwo.cn/resource/n1/99/0/1015593626.mp3',
+    title: '万有引力',
+    singer: '汪苏泷'
   }
 }];
 

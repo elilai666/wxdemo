@@ -1,19 +1,19 @@
 <!-- <import src='post-item/post-item-template.wxml'></import> -->
 <import src='/pages/posts/post-item/post-item-template.wxml' />
 <view>
-    <swiper indicator-dots='true' autoplay='true' circular='true'>
+    <swiper catchtap="onBannerTap" indicator-dots='true' indicator-color='rgba(160,160,160,.3)' indicator-active-color="white" autoplay='true' circular='true'>
         <swiper-item>
-            <image src='/images/swiper1.jpg'></image>
+            <image src='/images/swiper1.jpg' data-post-id='0'></image>
         </swiper-item>
         <swiper-item>
-            <image src='/images/swiper2.jpg'></image>
+            <image src='/images/swiper2.jpg' data-post-id='3'></image>
         </swiper-item>
         <swiper-item>
-            <image src='/images/swiper3.jpg'></image>
+            <image src='/images/swiper3.jpg' data-post-id='4'></image>
         </swiper-item>
     </swiper>
-    <block wx:for="{{post_key}}" wx:for-index="idx" >
-        <view catchtap='onPostTap' data-post-id='{{item.postId}}' >
+    <block wx:for="{{post_key}}" wx:for-index="idx">
+        <view catchtap='onPostTap' data-post-id='{{item.postId}}'>
             <!-- template模板 -->
             <template is='postItem' data="{{...item}}" />
         </view>

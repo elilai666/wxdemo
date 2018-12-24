@@ -11,7 +11,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     let postId = options.id;
     let thisPostItem = postsData.postList[postId];
     this.setData(thisPostItem);
@@ -23,31 +23,39 @@ Page({
     this.setData({
       'collected': Boolean(postsCollected[postId])
     });
+    //阅读+1
+    let postsRead = wx.getStorageSync('postsRead');
+    postsRead[postId] = +postsRead[postId] + 1
+    wx.setStorageSync('postsRead', postsRead)
     // 初始化音乐状态
     let musicManager = wx.getBackgroundAudioManager();
-
     musicManager.title = thisPostItem.music.title;
     musicManager.singer = thisPostItem.music.singer;
     musicManager.src = thisPostItem.music.url;
-    this.setData({
+    this.setMusicMonitor();
+  },
+
+  setMusicMonitor: function () {
+    let musicManager = wx.getBackgroundAudioManager();
+    // 播放状态监听
+    musicManager.onPlay(() => this.setData({
       isPlayingMusic: true
-    })
-    
+    }))
+    musicManager.onPause(() => this.setData({
+      isPlayingMusic: false
+    }));
   },
   /**
    * 点击音乐播放事件
    */
-  onMusicTap: function(e) {
+  onMusicTap: function (e) {
     let musicManager = wx.getBackgroundAudioManager();
     musicManager.paused ? musicManager.play() : musicManager.pause();
-    this.setData({
-      isPlayingMusic: !musicManager.paused
-    })
   },
   /**
    * 点击收藏按钮事件
    */
-  onColectionTap: function(e) {
+  onColectionTap: function (e) {
     // 更新缓存
     let postsCollected = wx.getStorageSync('postsCollected');
     wx.showToast({
@@ -66,12 +74,12 @@ Page({
   /**
    * 点击分享按钮事件
    */
-  onShareTap: function(e) {
+  onShareTap: function (e) {
     let shareArr = ["微信好友", '朋友圈', 'QQ', '微博']
     wx.showActionSheet({
       itemList: shareArr,
       itemColor: "#405f80",
-      success: function(res) {
+      success: function (res) {
         wx.showModal({
           title: '用户分享到' + shareArr[res.tapIndex],
           content: '确认？'
@@ -79,58 +87,13 @@ Page({
       }
     })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
     //离开页面的时候关闭音乐
-    let musicManager = wx.getBackgroundAudioManager();
-    musicManager.stop()
-    this.setData({
-      isPlayingMusic: false
-    })
+    console.log("unload page")
+    wx.getBackgroundAudioManager().stop();
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
-  }
 })
