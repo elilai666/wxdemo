@@ -4,3 +4,4 @@
     <template is="movie-list-template" data="{{...comingSoon}}"></template>
     <template is="movie-list-template" data="{{...top250}}"></template>
 </view>
+<!-- <text wx:if="{{loadMore}}"> 加载更多 </text> -->
