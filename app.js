@@ -1,5 +1,9 @@
 App({
-    onLaunch: function() {
+    globalData: {
+        doubanBase: 'http://t.yushu.im'
+    },
+    onLaunch: function(e) {
+        
         
     },
     onShow: function() {
@@ -8,7 +12,5 @@ App({
     onHide: function() {
         
     },
-    globalData: {
-        doubanBase: 'http://t.yushu.im'
-    }
+    
 })
