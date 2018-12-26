@@ -16,7 +16,7 @@ const formatNumber = n => {
 
 const converToStarsArray = stars => {
   let fullStarsNum = parseInt(stars.toString().substr(0, 1));
-  let halfStarNum = stars.toString().substr(1, 1) === "5"? 1 : 0;
+  let halfStarNum = stars.toString().substr(1, 1) === "5" ? 1 : 0;
   let starsArr = [];
   for (let index = 0; index < 5; index++) {
     if (fullStarsNum > 0) {
@@ -45,12 +45,36 @@ const parseSlogan = settedKey => {
 }
 
 const formatRating = rating => {
-  return rating===0 ? "暂无" : rating.toFixed(1);
+  return rating === 0 ? "暂无" : rating.toFixed(1);
 }
+
+const formatTitle = title => {
+  return title.length > 6 ? title.substr(0, 6) + "..." : title
+}
+
+const http = (url, callBack, method="GET", data={}) => {
+  wx.request({
+    url: url,
+    method: method,
+    header: {
+      'Content-Type': 'application/json'
+    },
+    data: data,
+    success: function (res) {
+      callBack(res.data)
+    },
+    fail: function (res) {
+      console.error(res)
+    }
+  })
+}
+
 
 module.exports = {
   formatTime: formatTime,
   converToStarsArray: converToStarsArray,
   parseSlogan: parseSlogan,
-  formatRating: formatRating
+  formatRating: formatRating,
+  formatTitle: formatTitle,
+  http:http
 }

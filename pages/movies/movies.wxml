@@ -1,5 +1,11 @@
 <import src="movie-list/movie-list-template.wxml"></import>
-<view class='container'>
+<view class="search">
+    <icon class="search-img" type="search" size="20" color="#405f80">
+    </icon>
+    <input class="search-input" type="text" placeholder="movie name" placeholder-class="placeholder" bindfocus="onBindFocus" bindconfirm="onBindConfirm">
+    </input>
+</view>
+<view class="container">
     <template is="movie-list-template" data="{{...inTheaters}}"></template>
     <template is="movie-list-template" data="{{...comingSoon}}"></template>
     <template is="movie-list-template" data="{{...top250}}"></template>

@@ -1,1 +1,7 @@
-/* pages/movies/more-movie/more-movie.wxss */
+@import "../movie-grid/movie-grid-template.wxss";
+
+.update-info {
+    text-align: center;
+    color: brown;
+    clear: both;
+}

@@ -1,4 +1,5 @@
 const util = require('../../utils/util');
+const app = getApp();
 Page({
 
     /**
@@ -15,7 +16,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        let baseUrl = getApp().globalData.doubanBase;
+        let baseUrl = app.globalData.doubanBase;
         let inTheatersUrl = baseUrl + "/v2/movie/in_theaters";
         let comingSoonUrl = baseUrl + "/v2/movie/coming_soon";
         let top250Url = baseUrl + "/v2/movie/top250";
@@ -86,15 +87,19 @@ Page({
         this.setData(tmpObj);
     },
 
-    onReachBottom: function(e) {
-        
-    },
     /**
      * "更多"点击事件
      */
     onMoreTap: function(e){
+        let category = e.currentTarget.dataset.category
         wx.navigateTo({
-            url: 'movie-grid/movie-grid-template.wxml'
+            url: 'more-movie/more-movie?category='+category
         })
+    },
+    onBindFocus: function (e) {
+        
+    },
+    onBindConfirm: function (e) {
+        
     }
 })

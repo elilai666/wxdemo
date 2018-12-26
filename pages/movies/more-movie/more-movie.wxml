@@ -1,2 +1,6 @@
 <!--pages/movies/more-movie/more-movie.wxml-->
-<text>pages/movies/more-movie/more-movie.wxml</text>
+<import src="../movie-grid/movie-grid-template.wxml"></import>
+<template is="movie-grid-template" data="{{movies}}"></template>
+<!-- <view class="update-info" hidden="{{!showLoading}}">加载中...</view>
+<view class="update-info" hidden="{{!noneNewData}}">无更新数据</view> -->
+

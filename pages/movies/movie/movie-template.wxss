@@ -13,6 +13,7 @@
 }
 
 .movie-title {
-    margin-bottom: 16rpx;
+    margin-bottom: 10rpx;
     font-size: 24rpx;
+    line-height: 24rpx;
 }
