@@ -9,7 +9,9 @@ Page({
         // 需要有初始值，不然初始化出错
         inTheaters: {},
         comingSoon: {},
-        top250:{}
+        top250: {},
+        showSearchResult: false,
+        showMovieView: true
     },
 
     /**
@@ -38,18 +40,18 @@ Page({
             header: {
                 'Content-Type': 'application/json'
             },
-            data : {
+            data: {
                 start: 0,
                 count: 3
             },
-            success: function(res) {
+            success: function (res) {
                 if (res.statusCode === 200) {
                     _this.processDoubanData(res.data, settedKey);
                 } else {
                     console.error(res)
                 }
             },
-            fail: function(res) {
+            fail: function (res) {
                 console.error(res)
             }
         })
@@ -59,21 +61,22 @@ Page({
         let movies = [];
         for (let idx in movieDatas.subjects) {
             let subject = movieDatas.subjects[idx];
-            let {title: title, 
-                id:id, 
+            let {
+                title: title,
+                id: id,
                 rating: {
-                    average: rating, 
+                    average: rating,
                     stars: stars
-                }, 
-                images:{
+                },
+                images: {
                     large: imgUrl
-                } 
+                }
             } = subject;
-            if (title.length > 6) title = title.substr(0,6) + "...";
-           
+            if (title.length > 6) title = title.substr(0, 6) + "...";
+
             movies.push({
-                title: title, 
-                id:id, 
+                title: title,
+                id: id,
                 average: util.formatRating(rating),
                 stars: util.converToStarsArray(stars),
                 coverageUrl: imgUrl
@@ -90,16 +93,29 @@ Page({
     /**
      * "更多"点击事件
      */
-    onMoreTap: function(e){
+    onMoreTap: function (e) {
         let category = e.currentTarget.dataset.category
         wx.navigateTo({
-            url: 'more-movie/more-movie?category='+category
+            url: 'more-movie/more-movie?category=' + category
         })
     },
     onBindFocus: function (e) {
-        
+        //展示搜索页
+        this.setData({
+            showSearchResult: true,
+            showMovieView: false
+        })
+    },
+
+    onBindBlur: function (e) {
+        //隐藏搜索页
+        this.setData({
+            showSearchResult: false,
+            showMovieView: true
+        })
+
     },
     onBindConfirm: function (e) {
-        
+        console.log("confirm")
     }
 })

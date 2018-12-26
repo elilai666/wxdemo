@@ -1,13 +1,16 @@
 <import src="movie-list/movie-list-template.wxml"></import>
-<view class="search">
+<view class="search" >
     <icon class="search-img" type="search" size="20" color="#405f80">
     </icon>
-    <input class="search-input" type="text" placeholder="movie name" placeholder-class="placeholder" bindfocus="onBindFocus" bindconfirm="onBindConfirm">
+    <input class="search-input" type="text" placeholder="movie name" placeholder-class="placeholder" bindfocus="onBindFocus" bindblur="onBindBlur" bindconfirm="onBindConfirm">
     </input>
 </view>
-<view class="container">
+<view class="container" hidden="{{!showMovieView}}">
     <template is="movie-list-template" data="{{...inTheaters}}"></template>
     <template is="movie-list-template" data="{{...comingSoon}}"></template>
     <template is="movie-list-template" data="{{...top250}}"></template>
+</view>
+<view class="search-result" hidden="{{!showSearchResult}}">
+    showSearchResult
 </view>
 <!-- <text wx:if="{{loadMore}}"> 加载更多 </text> -->
