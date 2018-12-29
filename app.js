@@ -1,6 +1,7 @@
 App({
     globalData: {
-        doubanBase: 'http://t.yushu.im'
+        doubanBase: 'https://douban.uieee.com'
+        // http://t.yushu.im
     },
     onLaunch: function(e) {
         

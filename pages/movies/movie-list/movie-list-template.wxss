@@ -5,11 +5,11 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 20rpx;
-    padding: 20rpx 0;
+    padding: 20rpx 22rpx;
 }
 
 .movie-head {
-    padding: 0 20rpx 22rpx;
+    margin-bottom: 20rpx;
     display: flex;
     justify-content: space-between;
     align-items: baseline;
@@ -34,5 +34,4 @@
 .movies-container {
     display: flex;
     justify-content: space-between;
-    padding: 0 22rpx;
 }

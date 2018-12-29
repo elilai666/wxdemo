@@ -1,5 +1,6 @@
-const util = require('../../utils/util');
-const app = getApp();
+const UTIL = require('../../utils/util');
+const APP = getApp();
+const BASEURL = APP.globalData.doubanBase;
 Page({
 
     /**
@@ -10,6 +11,8 @@ Page({
         inTheaters: {},
         comingSoon: {},
         top250: {},
+        searchResult: {},
+        searchValue: "",
         showSearchResult: false,
         showMovieView: true
     },
@@ -18,13 +21,22 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        let baseUrl = app.globalData.doubanBase;
-        let inTheatersUrl = baseUrl + "/v2/movie/in_theaters";
-        let comingSoonUrl = baseUrl + "/v2/movie/coming_soon";
-        let top250Url = baseUrl + "/v2/movie/top250";
-        this.getMovieListData(inTheatersUrl, "inTheaters");
-        this.getMovieListData(comingSoonUrl, "comingSoon");
-        this.getMovieListData(top250Url, "top250");
+        let inTheatersUrl = BASEURL + "/v2/movie/in_theaters";
+        let comingSoonUrl = BASEURL + "/v2/movie/coming_soon";
+        let top250Url = BASEURL + "/v2/movie/top250";
+        this.getMovieListData(inTheatersUrl, {
+            start: 0,
+            count: 3
+        }, "inTheaters")
+        this.getMovieListData(comingSoonUrl, {
+            start: 0,
+            count: 3
+        }, "comingSoon")
+        this.getMovieListData(top250Url, {
+            start: 0,
+            count: 3
+        }, "top250")
+
     },
 
     /**
@@ -32,18 +44,15 @@ Page({
      * @param {string} url 获取数据的url
      * @param {string} settedKey  用于数据绑定的key
      */
-    getMovieListData: function (url, settedKey) {
+    getMovieListData: function (url, data, settedKey) {
         let _this = this;
         wx.request({
             url: url,
             method: 'GET',
             header: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'Application/json'
             },
-            data: {
-                start: 0,
-                count: 3
-            },
+            data: data,
             success: function (res) {
                 if (res.statusCode === 200) {
                     _this.processDoubanData(res.data, settedKey);
@@ -72,20 +81,19 @@ Page({
                     large: imgUrl
                 }
             } = subject;
-            if (title.length > 6) title = title.substr(0, 6) + "...";
 
             movies.push({
-                title: title,
+                title: UTIL.formatTitle(title),
                 id: id,
-                average: util.formatRating(rating),
-                stars: util.converToStarsArray(stars),
+                average: UTIL.formatRating(rating),
+                stars: UTIL.converToStarsArray(stars),
                 coverageUrl: imgUrl
             })
         }
         let tmpObj = new Object();
         tmpObj[settedKey] = {
             movies: movies,
-            slogan: util.parseSlogan(settedKey)
+            slogan: UTIL.parseSlogan(settedKey)
         };
         this.setData(tmpObj);
     },
@@ -99,7 +107,8 @@ Page({
             url: 'more-movie/more-movie?category=' + category
         })
     },
-    onBindFocus: function (e) {
+
+/*     onBindFocus: function (e) {
         //展示搜索页
         this.setData({
             showSearchResult: true,
@@ -107,15 +116,52 @@ Page({
         })
     },
 
-    onBindBlur: function (e) {
-        //隐藏搜索页
+    onCancelIcon: function (e) {
+         //隐藏搜索页
+         this.setData({
+            showSearchResult: false,
+            showMovieView: true,
+            searchResult: {},
+            searchValue: ""
+        })
+    }, */
+    onMovieTap: function (e) {
+        let id = e.currentTarget.dataset.movieId;
+        wx.navigateTo({
+            url: 'movie-detail/movie-detail?id='+id
+        })
+    },
+    // 搜索组件逻辑
+    showInput: function () {
+        this.setData({
+            showSearchResult: true,
+            showMovieView: false
+        });
+    },
+    hideInput: function () {
         this.setData({
             showSearchResult: false,
-            showMovieView: true
-        })
-
+            showMovieView: true,
+            searchResult: {},
+            searchValue: ""
+        });
+    },
+    clearInput: function () {
+        this.setData({
+            searchValue: ""
+        });
+    },
+    inputTyping: function (e) {
+        this.setData({
+            searchValue: e.detail.value
+        });
     },
     onBindConfirm: function (e) {
-        console.log("confirm")
-    }
+        let inputText = e.detail.value;
+        let searchUrl = BASEURL+"/v2/movie/search"
+        this.getMovieListData(searchUrl, {
+            q: inputText,
+        }, "searchResult")
+    },
+
 })

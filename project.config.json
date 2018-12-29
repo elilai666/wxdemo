@@ -12,7 +12,7 @@
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.2",
+	"libVersion": "2.4.3",
 	"appid": "wx1169b377074d1bfd",
 	"projectname": "wedemo",
 	"debugOptions": {

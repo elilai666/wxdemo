@@ -44,6 +44,9 @@ Page({
     musicManager.onPause(() => this.setData({
       isPlayingMusic: false
     }));
+    musicManager.onStop(() => this.setData({
+      isPlayingMusic: false
+    }));
   },
   /**
    * 点击音乐播放事件

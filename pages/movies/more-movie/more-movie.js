@@ -1,5 +1,5 @@
-const util = require('../../../utils/util');
-const baseUrl = getApp().globalData.doubanBase;
+const UTIL = require('../../../utils/util');
+const BASEURL = getApp().globalData.doubanBase;
 Page({
 
     /**
@@ -7,8 +7,8 @@ Page({
      */
     data: {
         dataIdx: 0,
-        // showLoading: false,
-        // noneNewData: false
+        showLoading: false,
+        noneNewData: false
     },
 
     /**
@@ -20,19 +20,19 @@ Page({
         let dataUrl;
         switch (category) {
             case "正在热映":
-                dataUrl = baseUrl + "/v2/movie/in_theaters";
+                dataUrl = BASEURL + "/v2/movie/in_theaters";
                 break;
             case "即将上映":
-                dataUrl = baseUrl + "/v2/movie/coming_soon";
+                dataUrl = BASEURL + "/v2/movie/coming_soon";
                 break;
             case "Top250":
-                dataUrl = baseUrl + "/v2/movie/top250";
+                dataUrl = BASEURL + "/v2/movie/top250";
                 break;
             default:
                 break
         }
         this.dataUrl = dataUrl;
-        util.http(dataUrl, this.processDoubanData, "GET", {
+        UTIL.http(dataUrl, this.processDoubanData, "GET", {
             start: this.data.dataIdx,
             count: 20
         })
@@ -43,13 +43,13 @@ Page({
         if (this.data.movies) {
             originMovies = this.data.movies;
         }
-        if (movieDatas.count === 0) {
+        if (movieDatas.start > movieDatas.total) {
             wx.hideNavigationBarLoading();
             wx.stopPullDownRefresh();
-            // this.setData({
-            //     noneNewData: true,
-            //     showLoading: false
-            // })
+            this.setData({
+                noneNewData: true,
+                showLoading: false
+            })
         } else {
             let movies = [];
             for (let idx in movieDatas.subjects) {
@@ -67,10 +67,10 @@ Page({
                 } = subject;
 
                 movies.push({
-                    title: util.formatTitle(title),
+                    title: UTIL.formatTitle(title),
                     id: id,
-                    average: util.formatRating(rating),
-                    stars: util.converToStarsArray(stars),
+                    average: UTIL.formatRating(rating),
+                    stars: UTIL.converToStarsArray(stars),
                     coverageUrl: imgUrl
                 })
             }
@@ -78,7 +78,7 @@ Page({
             this.setData({
                 movies: originMovies.concat(movies),
                 dataIdx: this.data.dataIdx + movieDatas.count,
-                // showLoading: false
+                showLoading: false
             });
             wx.hideNavigationBarLoading();
             wx.stopPullDownRefresh();
@@ -99,14 +99,16 @@ Page({
      */
     onReachBottom: function () {
         wx.showNavigationBarLoading()
-        // this.setData({
-        //     showLoading: true,
-        //     noneNewData: false
-        // });
-        util.http(this.dataUrl, this.processDoubanData, "GET", {
-            start: this.data.dataIdx,
-            count: 20
-        })
+        this.setData({
+            showLoading: true,
+            noneNewData: false
+        });
+        setTimeout(()=>{
+            UTIL.http(this.dataUrl, this.processDoubanData, "GET", {
+                start: this.data.dataIdx,
+                count: 20
+            })
+        }, 500)
     },
 
     /**
@@ -118,41 +120,17 @@ Page({
         this.data.movies = null;
         this.data.dataIdx = 0;
 
-        util.http(this.dataUrl, this.processDoubanData, "GET", {
+        UTIL.http(this.dataUrl, this.processDoubanData, "GET", {
             start: 0,
             count: 20
         })
     },
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
+    onMovieTap: function (e) {
+        let id = e.currentTarget.dataset.movieId;
+        wx.navigateTo({
+            url: '../movie-detail/movie-detail?id='+id
+        })
     },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
     
-
-    
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
-    }
-})
+});

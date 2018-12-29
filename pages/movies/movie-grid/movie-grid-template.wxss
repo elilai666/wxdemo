@@ -2,9 +2,12 @@
 
 .movie-grid-container {
     padding: 30rpx 15rpx;
-    height: 1300rpx;
+    /* 形成BFC */
+    overflow: hidden; 
 }
-
+.movie-grid-tip {
+    text-align: center;
+}
 .single-movie-container {
     float: left;
     margin: 0 20rpx 15rpx;

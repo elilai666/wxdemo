@@ -1,10 +1,11 @@
 <import src="../movie/movie-template.wxml" />
 <template name="movie-grid-template">
     <view class='movie-grid-container' scroll-y="true" >
-        <block wx:for="{{movies}}" wx:for-item="movie">
+        <block wx:for="{{movies}}" wx:key="id"  wx:for-item="movie">
             <view class="single-movie-container">
                 <template is="movie-template" data="{{...movie}}" />
             </view>
         </block>
+        <view class="movie-grid-tip" wx:if="{{movies.length===0}}">暂无数据</view>
     </view>
 </template>

@@ -1,6 +1,13 @@
-<!--pages/movies/more-movie/more-movie.wxml-->
+<!-- pages/movies/more-movie/more-movie.wxml -->
 <import src="../movie-grid/movie-grid-template.wxml"></import>
 <template is="movie-grid-template" data="{{movies}}"></template>
+<view class="weui-loadmore" hidden="{{!showLoading}}">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">正在加载</view>
+</view>
+<view class="weui-loadmore" hidden="{{!noneNewData}}" >
+    <view class="weui-loadmore__tips">暂无数据</view>
+</view>
 <!-- <view class="update-info" hidden="{{!showLoading}}">加载中...</view>
-<view class="update-info" hidden="{{!noneNewData}}">无更新数据</view> -->
 
+<view class="update-info" hidden="{{!noneNewData}}">无更新数据</view> -->

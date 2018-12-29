@@ -1,13 +1,15 @@
 {
     "pages": [
         "pages/welcome/welcome",
+        "pages/movies/movies",
         "pages/posts/posts",
         "pages/posts/post-detail/post-detail",
-        "pages/movies/movies",
-        "pages/movies/more-movie/more-movie"
+        "pages/movies/more-movie/more-movie",
+        "pages/movies/movie-detail/movie-detail"
     ],
     "window": {
-        "navigationBarBackgroundColor": "#405f80"
+        "navigationBarBackgroundColor": "#405f80",
+        "onReachBottomDistance": 100
     },
     "requiredBackgroundModes": [
         "audio"

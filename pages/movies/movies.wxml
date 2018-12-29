@@ -1,16 +1,34 @@
-<import src="movie-list/movie-list-template.wxml"></import>
-<view class="search" >
-    <icon class="search-img" type="search" size="20" color="#405f80">
-    </icon>
-    <input class="search-input" type="text" placeholder="movie name" placeholder-class="placeholder" bindfocus="onBindFocus" bindblur="onBindBlur" bindconfirm="onBindConfirm">
-    </input>
+<import src="movie-list/movie-list-template.wxml" />
+<import src="movie-grid/movie-grid-template.wxml" />
+<!-- <view class="search">
+    <icon class="search-img" type="search" size="20" color="#405f80" />
+    <input class="search-input" type="text" confirm-type="search" placeholder="movie name" placeholder-class="placeholder" value="{{searchValue}}" bindfocus="onBindFocus" bindconfirm="onBindConfirm" bindinput="onBindInput" />
+    <icon type="cancel" size="20" color="#666" bindtap="onCancelIcon" hidden="{{!showSearchResult}}" />
+</view> -->
+<!-- 替换成weui搜索组件 -->
+<view class="weui-search-bar">
+    <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+            <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+            <input type="text" class="weui-search-bar__input" placeholder="搜索" confirm-type="search" value="{{searchValue}}" focus="{{showSearchResult}}" bindinput="inputTyping" bindconfirm="onBindConfirm"/>
+            <view class="weui-icon-clear" wx:if="{{searchValue.length > 0}}" bindtap="clearInput">
+                <icon type="clear" size="14"></icon>
+            </view>
+        </view>
+        <label class="weui-search-bar__label" hidden="{{showSearchResult}}" bindtap="showInput">
+            <icon class="weui-icon-search" type="search" size="14"></icon>
+            <view class="weui-search-bar__text">搜索</view>
+        </label>
+    </view>
+    <view class="weui-search-bar__cancel-btn" hidden="{{!showSearchResult}}" bindtap="hideInput">
+        取消
+    </view>
 </view>
 <view class="container" hidden="{{!showMovieView}}">
     <template is="movie-list-template" data="{{...inTheaters}}"></template>
     <template is="movie-list-template" data="{{...comingSoon}}"></template>
     <template is="movie-list-template" data="{{...top250}}"></template>
 </view>
-<view class="search-result" hidden="{{!showSearchResult}}">
-    showSearchResult
+<view class="search-panel" hidden="{{!showSearchResult}}">
+    <template is="movie-grid-template" data="{{...searchResult}}" />
 </view>
-<!-- <text wx:if="{{loadMore}}"> 加载更多 </text> -->

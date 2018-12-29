@@ -1,19 +1,3 @@
-const formatTime = date => {
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
-  const hour = date.getHours()
-  const minute = date.getMinutes()
-  const second = date.getSeconds()
-
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
-}
-
-const formatNumber = n => {
-  n = n.toString()
-  return n[1] ? n : '0' + n
-}
-
 const converToStarsArray = stars => {
   let fullStarsNum = parseInt(stars.toString().substr(0, 1));
   let halfStarNum = stars.toString().substr(1, 1) === "5" ? 1 : 0;
@@ -40,6 +24,8 @@ const parseSlogan = settedKey => {
     slogan = "即将上映";
   } else if (settedKey === "top250") {
     slogan = "Top250";
+  } else if (settedKey === "searchResult") {
+    slogan = "搜索结果";
   }
   return slogan;
 }
@@ -48,16 +34,15 @@ const formatRating = rating => {
   return rating === 0 ? "暂无" : rating.toFixed(1);
 }
 
-const formatTitle = title => {
-  return title.length > 6 ? title.substr(0, 6) + "..." : title
+const formatTitle = (title, remainNum=6) => {
+  return title.length > remainNum ? title.substr(0, remainNum) + "..." : title
 }
-
 const http = (url, callBack, method="GET", data={}) => {
   wx.request({
     url: url,
     method: method,
     header: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'Application/json'
     },
     data: data,
     success: function (res) {
@@ -69,12 +54,28 @@ const http = (url, callBack, method="GET", data={}) => {
   })
 }
 
+const covertToNameString = (roleArr)=>{
+  let nameArr = roleArr.map(role=>role.name);
+  let nameStr = nameArr.join("/");
+  return nameStr;
+}
+
+const covertToCastInfo = (castArr)=>{
+  let castInfoArr = castArr.map(role=>{
+    return {
+      name: role.name,
+      img: role.avatars?role.avatars.large:""
+    }
+  });
+  return castInfoArr;
+}
 
 module.exports = {
-  formatTime: formatTime,
   converToStarsArray: converToStarsArray,
   parseSlogan: parseSlogan,
   formatRating: formatRating,
   formatTitle: formatTitle,
-  http:http
+  http:http,
+  covertToNameString: covertToNameString,
+  covertToCastInfo: covertToCastInfo
 }
