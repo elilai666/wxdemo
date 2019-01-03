@@ -6,7 +6,7 @@
     <icon type="cancel" size="20" color="#666" bindtap="onCancelIcon" hidden="{{!showSearchResult}}" />
 </view> -->
 <!-- 替换成weui搜索组件 -->
-<view class="weui-search-bar">
+<!-- <view class="weui-search-bar">
     <view class="weui-search-bar__form">
         <view class="weui-search-bar__box">
             <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
@@ -23,7 +23,8 @@
     <view class="weui-search-bar__cancel-btn" hidden="{{!showSearchResult}}" bindtap="hideInput">
         取消
     </view>
-</view>
+</view> -->
+<my-searchbar title="搜索电影" placeholder="霸王别姬" bind:search="onSearch" bind:hideInput="onHideInput" bind:showInput="onShowInput"></my-searchbar>
 <view class="container" hidden="{{!showMovieView}}">
     <template is="movie-list-template" data="{{...inTheaters}}"></template>
     <template is="movie-list-template" data="{{...comingSoon}}"></template>

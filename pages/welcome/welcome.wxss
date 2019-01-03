@@ -29,7 +29,10 @@ page {
     width: 200rpx;
     text-align: center;
 }
-
+.moto-container--click {
+    background: #a4c2c8;
+    color: #527aa5;
+}
 .moto {
     font-size: 22rpx;
     line-height: 80rpx;

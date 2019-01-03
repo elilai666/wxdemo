@@ -1,0 +1,18 @@
+<view class="my-search-bar">
+    <view class="my-search-bar__form">
+        <view class="my-search-bar__box" bindtap="showInput">
+            <icon class="my-icon-search_in-box" type="search" size="14" color='{{searchIconColor}}'></icon>
+            <input type="text" class="my-search-bar__input" placeholder="{{placeholder}}" confirm-type="search" value="{{searchValue}}" focus="{{inputFocused}}" bindinput="inputTyping" bindconfirm="getSearchValue"/>
+            <view class="my-icon-clear" wx:if="{{searchValue.length > 0}}" bindtap="clearInput">
+                <icon type="clear" size="14" color='{{clearIconColor}}'></icon>
+            </view>
+        </view>
+        <label class="my-search-bar__label" hidden="{{inputFocused}}" bindtap="showInput">
+            <icon class="my-icon-search" type="search" size="14"></icon>
+            <view class="my-search-bar__text">{{title}}</view>
+        </label>
+    </view>
+    <view class="my-search-bar__cancel-btn" hidden="{{!inputFocused}}" bindtap="hideInput">
+        取消
+    </view>
+</view>

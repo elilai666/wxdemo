@@ -108,23 +108,7 @@ Page({
         })
     },
 
-/*     onBindFocus: function (e) {
-        //展示搜索页
-        this.setData({
-            showSearchResult: true,
-            showMovieView: false
-        })
-    },
-
-    onCancelIcon: function (e) {
-         //隐藏搜索页
-         this.setData({
-            showSearchResult: false,
-            showMovieView: true,
-            searchResult: {},
-            searchValue: ""
-        })
-    }, */
+   
     onMovieTap: function (e) {
         let id = e.currentTarget.dataset.movieId;
         wx.navigateTo({
@@ -132,36 +116,23 @@ Page({
         })
     },
     // 搜索组件逻辑
-    showInput: function () {
+    onHideInput: function() {
+        this.setData({
+            showSearchResult: false,
+            showMovieView: true
+        });
+    },
+    onShowInput: function() {
         this.setData({
             showSearchResult: true,
             showMovieView: false
         });
     },
-    hideInput: function () {
-        this.setData({
-            showSearchResult: false,
-            showMovieView: true,
-            searchResult: {},
-            searchValue: ""
-        });
-    },
-    clearInput: function () {
-        this.setData({
-            searchValue: ""
-        });
-    },
-    inputTyping: function (e) {
-        this.setData({
-            searchValue: e.detail.value
-        });
-    },
-    onBindConfirm: function (e) {
-        let inputText = e.detail.value;
-        let searchUrl = BASEURL+"/v2/movie/search"
+    onSearch: function(event) {
+        let searchValue = event.detail.value;
+        let searchUrl = BASEURL+"/v2/movie/search";
         this.getMovieListData(searchUrl, {
-            q: inputText,
+            q: searchValue,
         }, "searchResult")
     },
-
 })

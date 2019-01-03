@@ -103,12 +103,10 @@ Page({
             showLoading: true,
             noneNewData: false
         });
-        setTimeout(()=>{
-            UTIL.http(this.dataUrl, this.processDoubanData, "GET", {
-                start: this.data.dataIdx,
-                count: 20
-            })
-        }, 500)
+        UTIL.http(this.dataUrl, this.processDoubanData, "GET", {
+            start: this.data.dataIdx,
+            count: 20
+        })
     },
 
     /**

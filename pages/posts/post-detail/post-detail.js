@@ -12,6 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
     let postId = options.id;
     let thisPostItem = postsData.postList[postId];
     this.setData(thisPostItem);
@@ -32,6 +33,18 @@ Page({
     musicManager.title = thisPostItem.music.title;
     musicManager.singer = thisPostItem.music.singer;
     musicManager.src = thisPostItem.music.url;
+    wx.getNetworkType({
+      success: (result) => {
+        if (result.networkType !== 'wifi') {
+          wx.showToast({
+            title: '非wifi网络！',
+            duration: 2000,
+            mask: false,
+          });
+          musicManager.pause();
+        }
+      }
+    });
     this.setMusicMonitor();
   },
 
@@ -44,7 +57,13 @@ Page({
     musicManager.onPause(() => this.setData({
       isPlayingMusic: false
     }));
-    musicManager.onStop(() => this.setData({
+    musicManager.onStop(() => {
+      this.setData({
+          isPlayingMusic: false
+        }
+      )
+    });
+    musicManager.onEnded(() => this.setData({
       isPlayingMusic: false
     }));
   },
@@ -53,7 +72,18 @@ Page({
    */
   onMusicTap: function (e) {
     let musicManager = wx.getBackgroundAudioManager();
-    musicManager.paused ? musicManager.play() : musicManager.pause();
+    console.log("paused:"+musicManager.paused);
+    if (musicManager.paused) {
+      // 先尝试播放音乐，如果播放不了，证明音乐已经stop,重新设置src播放
+      musicManager.play();
+      if (musicManager.paused) {
+        musicManager.src = this.data.music.url;
+        musicManager.title = this.data.music.title;
+      }
+    } else {
+      musicManager.pause();
+    }
+    
   },
   /**
    * 点击收藏按钮事件
@@ -95,7 +125,6 @@ Page({
    */
   onUnload: function () {
     //离开页面的时候关闭音乐
-    console.log("unload page")
     wx.getBackgroundAudioManager().stop();
   },
 

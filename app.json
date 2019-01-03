@@ -14,6 +14,9 @@
     "requiredBackgroundModes": [
         "audio"
     ],
+    "usingComponents": {
+        "my-searchbar": "/component/searchbar/index"
+    },
     "tabBar": {
         "list": [
             {
