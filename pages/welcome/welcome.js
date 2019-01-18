@@ -1,4 +1,7 @@
 Page({
+    onLoad: function(e){
+       
+    },
     onTap: function(e) {
         wx.switchTab({
             url: '../posts/posts',

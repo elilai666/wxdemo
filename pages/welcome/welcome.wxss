@@ -10,9 +10,13 @@ page {
 }
 
 .user-avatar {
+    overflow:hidden;
+    box-sizing: border-box;
     width: 200rpx;
     height: 200rpx;
     margin-top: 160rpx;
+    border-radius: 50%;
+    border: 2px solid #fff;
 }
 
 .user-name {
