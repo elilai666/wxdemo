@@ -12,16 +12,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
     let postId = options.id;
     let thisPostItem = postsData.postList[postId];
-    this.setData(thisPostItem);
     // 缓存
     let postsCollected = wx.getStorageSync('postsCollected');
     if (!postsCollected) {
       wx.setStorageSync('postsCollected', new Object())
     }
+    
     this.setData({
+      ...thisPostItem,
       'collected': Boolean(postsCollected[postId])
     });
     //阅读+1
@@ -33,19 +33,21 @@ Page({
     musicManager.title = thisPostItem.music.title;
     musicManager.singer = thisPostItem.music.singer;
     musicManager.src = thisPostItem.music.url;
+  
+    this.setMusicMonitor();
     wx.getNetworkType({
       success: (result) => {
         if (result.networkType !== 'wifi') {
+          musicManager.pause();
           wx.showToast({
             title: '非wifi网络！',
             duration: 2000,
             mask: false,
           });
-          musicManager.pause();
         }
       }
     });
-    this.setMusicMonitor();
+    
   },
 
   setMusicMonitor: function () {
@@ -57,12 +59,9 @@ Page({
     musicManager.onPause(() => this.setData({
       isPlayingMusic: false
     }));
-    musicManager.onStop(() => {
-      this.setData({
-          isPlayingMusic: false
-        }
-      )
-    });
+    musicManager.onStop(() =>  this.setData({
+      isPlayingMusic: false
+    }));
     musicManager.onEnded(() => this.setData({
       isPlayingMusic: false
     }));
